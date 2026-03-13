@@ -8,10 +8,18 @@ public class Beverage extends GroceryProduct {
         this.sugarLevel = sugarLevel;
     }
 
-    public final SugarLevel getSugarLevel() { return sugarLevel; }
     protected final void setSugarLevel(SugarLevel sugarLevel) { this.sugarLevel = sugarLevel; }
+    public final SugarLevel getSugarLevel() { return sugarLevel; }
+    public final double getActualPrice(double extra) {
+        return getPrice()-(getPrice()*((getDiscount()+extra)/100));
+    }
 
     @Override public String toString() {
         return super.toString()+"\nSugar Level: "+sugarLevel;
+    }
+    @Override public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Beverage other)) return false;
+        return super.equals(o)&&sugarLevel==other.sugarLevel;
     }
 }
