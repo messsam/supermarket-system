@@ -1,6 +1,6 @@
 package guc.supermarket.products;
 
-public class GroceryProduct {
+public abstract class GroceryProduct {
     private String name;
     private double price, discount;
 
@@ -30,4 +30,6 @@ public class GroceryProduct {
         if (!(o instanceof GroceryProduct other)) return false;
         return name.equals(other.name)&&price==other.price&&discount==other.discount;
     }
+
+    public abstract boolean refrigerate();
 }

@@ -19,4 +19,7 @@ public class DairyProduct extends GroceryProduct {
         if (!(o instanceof DairyProduct other)) return false;
         return super.equals(o)&&fat==other.fat;
     }
+    @Override public boolean refrigerate() {
+        return true;
+    }
 }

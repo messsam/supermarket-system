@@ -22,4 +22,7 @@ public class Beverage extends GroceryProduct {
         if (!(o instanceof Beverage other)) return false;
         return super.equals(o)&&sugarLevel==other.sugarLevel;
     }
+    @Override public boolean refrigerate() {
+        return false;
+    }
 }
