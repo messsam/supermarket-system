@@ -1,6 +1,6 @@
 package guc.supermarket.products;
 
-public class Beverage extends GroceryProduct {
+public class Beverage extends GroceryProduct implements Drinkable {
     private SugarLevel sugarLevel;
 
     public Beverage(String name, double price, double discount, SugarLevel sugarLevel) {
@@ -14,15 +14,12 @@ public class Beverage extends GroceryProduct {
         return getPrice()-(getPrice()*((getDiscount()+extra)/100));
     }
 
-    @Override public String toString() {
-        return super.toString()+"\nSugar Level: "+sugarLevel;
-    }
+    @Override public boolean refrigerate() { return false; }
+    @Override public boolean isHealthy() { return sugarLevel != SugarLevel.ADDED_SUGAR; }
+    @Override public String toString() { return super.toString()+"\nSugar Level: "+sugarLevel; }
     @Override public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Beverage other)) return false;
         return super.equals(o)&&sugarLevel==other.sugarLevel;
-    }
-    @Override public boolean refrigerate() {
-        return false;
     }
 }
