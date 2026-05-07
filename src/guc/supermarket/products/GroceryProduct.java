@@ -1,5 +1,7 @@
 package guc.supermarket.products;
 
+import guc.supermarket.exceptions.InvalidDiscountException;
+
 public abstract class GroceryProduct {
     private String name;
     private double price, discount;
@@ -10,11 +12,11 @@ public abstract class GroceryProduct {
         setDiscount(discount);
     }
 
-    protected final void setName(String name) { this.name = name; }
-    protected final void setPrice(double price) { this.price = price; }
-    protected final void setDiscount(double discount) {
+    public final void setName(String name) { this.name = name; }
+    public final void setPrice(double price) { this.price = price; }
+    public final void setDiscount(double discount) throws InvalidDiscountException {
         if (discount >= 0 && discount <= 100) this.discount = discount;
-        else throw new IllegalArgumentException("Discount should range from 0 to 100.");
+        else throw new InvalidDiscountException("Discount should range from 0% to 100%.");
     }
 
     public final String getName() { return name; }
@@ -25,10 +27,11 @@ public abstract class GroceryProduct {
     @Override public String toString() {
         return "Name: "+name+"\nPrice: "+price+" L.E.\nDiscount: "+discount+" %";
     }
-    @Override public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof GroceryProduct other)) return false;
-        return name.equals(other.name)&&price==other.price&&discount==other.discount;
+    @Override public boolean equals(Object obj) {
+        if (obj == this) return true;
+        if (obj instanceof GroceryProduct other)
+            return name.equals(other.name)&&price==other.price&&discount==other.discount;
+        return false;
     }
 
     public abstract boolean refrigerate();
