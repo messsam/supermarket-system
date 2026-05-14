@@ -1,10 +1,10 @@
 # Supermarket System
 
-A desktop supermarket POS app built with Java and JavaFX. Made as an OOP course project at GUC.
+A desktop supermarket POS app built with Java and JavaFX.
 
 ## What it does
 
-Simulates a supermarket checkout — browse products, add them to a cart, process the transaction (with a cash register sound), and log it to a CSV file. A `Simulator` class handles the automated customer/cashier behavior in the background.
+Simulates a supermarket checkout: browses products, adds them to a cart, and processes the transaction. A `Simulator` class handles the automated customer/cashier behavior in the background.
 
 ## Stack
 
