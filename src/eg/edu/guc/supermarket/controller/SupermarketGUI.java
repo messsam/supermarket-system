@@ -32,7 +32,7 @@ public class SupermarketGUI extends Application {
     @Override
     public void init() {
         // Cash-audio loading.
-        File file = new File("cash-register-peep.wav");
+        File file = new File("cash-register-audio.wav");
         cashRegisterSound = new Media(file.toURI().toString());
         player = new MediaPlayer(cashRegisterSound);
     }
