@@ -11,7 +11,7 @@ import eg.edu.guc.supermarket.exceptions.InvalidProductException;
 
 public class Simulator {
 	public void simulate() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("Transactions.csv"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("transactions.csv"))) {
             String currentLine = "";
             while ((currentLine = reader.readLine()) != null) {
                 if (currentLine.isBlank()) continue;

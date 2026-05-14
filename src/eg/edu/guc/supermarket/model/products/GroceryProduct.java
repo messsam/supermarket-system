@@ -22,10 +22,11 @@ public abstract class GroceryProduct {
     public final String getName() { return name; }
     public final double getPrice() { return price; }
     public final double getDiscount() { return discount; }
-    public final double getActualPrice() { return price-(price*(discount/100)); }
+    public final double getActualPrice() { return price-price*discount/100; }
 
     @Override public String toString() {
-        return "Name: "+name+"\nPrice: "+price+" L.E.\nDiscount: "+discount+" %";
+        // return "Name: "+name+"\nPrice: "+price+" L.E.\nDiscount: "+discount+" %";
+        return String.format("%s ($%.2f)", name, getActualPrice()); // %.2f limits double values to 2 decimal places
     }
     @Override public boolean equals(Object obj) {
         if (obj == this) return true;
