@@ -28,10 +28,12 @@ public class SupermarketGUI extends Application {
 
     Media cashRegisterSound;
     MediaPlayer player;
+    File icon;
 
     @Override
     public void init() {
-        // Cash-audio loading.
+        // Image & audio loading.
+        icon = new File("icon.png");
         File file = new File("cash-register-audio.wav");
         cashRegisterSound = new Media(file.toURI().toString());
         player = new MediaPlayer(cashRegisterSound);
@@ -73,7 +75,6 @@ public class SupermarketGUI extends Application {
         // Set the VBox as the root of the scene
         Scene scene = new Scene(view, 1000, 500);
 
-        File icon = new File("icon.png");
         primaryStage.getIcons().add(new Image(icon.toURI().toString()));
         primaryStage.setTitle("Supermarket System");
 
@@ -96,6 +97,7 @@ public class SupermarketGUI extends Application {
     private void displayAlert(String title, String message) {
         Stage alertStage = new Stage();
         alertStage.setTitle(title);
+        alertStage.getIcons().add(new Image(icon.toURI().toString()));
 
         Label label = new Label(message);
         Button closeButton = new Button("Continue Shopping");
