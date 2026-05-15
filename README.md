@@ -15,21 +15,6 @@ Simulates a supermarket checkout: browses products, adds them to a cart, and pro
 
 Inheritance, abstraction, polymorphism, encapsulation, and interfaces, all applied across the model layer (people, products, etc.).
 
-## Project structure
-
-```
-supermarket-system/
-├── src/
-│   └── eg/edu/guc/supermarket/
-│       ├── controller/         # JavaFX controllers, app entry point
-│       └── model/
-│           └── people/         # Simulator and person-related classes
-├── Transactions.csv            # Transaction log (read/written at runtime)
-├── cash-register-audio.wav     # Plays on checkout
-├── icon.png                    # App window icon
-└── supermarket-system.iml
-```
-
 ## Running it
 
 1. Clone the repo:
